@@ -1,0 +1,14 @@
+p-menu-list {
+  width: 100% !important;
+}
+
+p-menu {
+  border: none !important;
+  
+}
+
+#botao {
+  @media (min-width: 640px) {
+    visibility: visible;
+  }  
+}

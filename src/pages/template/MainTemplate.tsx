@@ -43,7 +43,13 @@ export function MainTemplate(props: MainTemplateProps) {
     {
       label: 'Vagas',
       icon: 'pi pi-list',
-    }
+      command: () => { navigate('/vagas'); },
+    },
+    // {
+    //   label: 'Inscrições',
+    //   icon: 'pi pi-list',
+    //   command: () => { navigate('/inscricoes'); },
+    // }
   ];
 
   let navigate = useNavigate();

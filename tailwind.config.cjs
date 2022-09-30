@@ -14,8 +14,13 @@ module.exports = {
       gridTemplateRows: {
         // Simple 8 row grid
         'dashboard': '10vh 100%',
+      },
+      screens: {
+        'tablet': { 'max': '960px' },
+        // => @media (max-width: 960px) { ... }
       }
     },
+
   },
   plugins: [],
 }

@@ -1,6 +1,5 @@
 import axios from 'axios';
 import { Button } from 'primereact/button';
-import { SplitButton } from 'primereact/splitbutton';
 import { Column } from 'primereact/column';
 import { DataTable, DataTableGlobalFilterType } from 'primereact/datatable';
 import { Dialog } from 'primereact/dialog';
@@ -15,17 +14,16 @@ import { addLocale } from 'primereact/api';
 import { classNames } from 'primereact/utils';
 import { Fragment, useRef, useState, useEffect } from 'react';
 import { Controller, useForm, useWatch } from 'react-hook-form';
-import { Cidade, UnidadeFederativa } from '../../interfaces/EmpresaInterface';
-import { MainTemplate } from '../template/MainTemplate';
+import { Cidade, UnidadeFederativa } from '../../../interfaces/EmpresaInterface';
+import { MainTemplate } from '../../template/MainTemplate';
 import { ToggleButton } from 'primereact/togglebutton';
-import { tipoEnderecoSelectItems, turno } from '../../enums/EnumApi';
-import { Candidato, CandidatoForm } from '../../interfaces/CandidatoInterface';
+import { tipoEnderecoSelectItems, turno } from '../../../enums/EnumApi';
+import { Candidato, CandidatoForm } from '../../../interfaces/CandidatoInterface';
 import dateFormat from "dateformat";
-import { url } from '../../service/HostApi';
-import { useCidade } from '../../hooks/useCidade';
-import { useNavigate } from 'react-router-dom';
+import { url } from '../../../service/HostApi';
+import { useCidade } from '../../../hooks/useCidade';
 
-export function GerenciarCandidato() {
+export function FormExperienciaProfissional() {
 
   addLocale('pt', {
     "startsWith": "Começa com",
@@ -113,7 +111,6 @@ export function GerenciarCandidato() {
 
   const dt = useRef<DataTable>(null);
   const toast = useRef<Toast>(null);
-  let navigate = useNavigate();
 
   //Botões toolbar Nova candidato e Remover candidato
   const leftToolbarTemplate = () => {
@@ -145,29 +142,10 @@ export function GerenciarCandidato() {
   }
 
   const actionBodyTemplateDataTable = (rowData: Candidato) => {
-    const actionButtonItems = [
-      {
-        label: 'Editar',
-        icon: 'pi pi-pencil',
-        command: () => editCandidato(rowData)
-      },
-      {
-        label: 'Excluir',
-        icon: 'pi pi-trash',
-        command: () => confirmDeleteCandidato(rowData)
-      },
-      {
-        label: 'Experiência profissional',
-        icon: 'pi pi-book',
-        command: () => navigate(`/experienciaProfissional/candidatos/${rowData.id!}`)
-      },
-
-    ];
     return (
       <Fragment>
-        <SplitButton icon="pi pi-plus" label="Opções" model={actionButtonItems} className="mr-2 mb-2"></SplitButton>
-        {/* <Button icon="pi pi-pencil" className="p-button-rounded p-button-success mr-2" onClick={() => editCandidato(rowData)} />
-        <Button icon="pi pi-trash" className="p-button-rounded p-button-warning" onClick={() => confirmDeleteCandidato(rowData)} /> */}
+        <Button icon="pi pi-pencil" className="p-button-rounded p-button-success mr-2" onClick={() => editCandidato(rowData)} />
+        <Button icon="pi pi-trash" className="p-button-rounded p-button-warning" onClick={() => confirmDeleteCandidato(rowData)} />
       </Fragment>
     );
   }

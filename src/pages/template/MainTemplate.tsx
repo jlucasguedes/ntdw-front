@@ -1,13 +1,10 @@
 import { Sidebar } from 'primereact/sidebar';
-import { Toolbar } from 'primereact/toolbar';
 import { Menu } from 'primereact/menu';
 import { Button } from 'primereact/button';
 import { Menubar } from 'primereact/menubar';
 
 import { useState, Fragment, ReactNode, FormEvent } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Empresa } from '../../interfaces/EmpresaInterface';
-import { InputText } from 'primereact/inputtext';
 
 type MainTemplateProps = {
   children?: ReactNode;

@@ -109,7 +109,6 @@ export function GerenciarEmpresa() {
       setEmpresa(null);
       toast.current?.show({ severity: 'success', summary: 'Sucesso', detail: 'Empresa removida', life: 3000 });
     } catch (error: any) {
-      console.log(error);
       setDeleteEmpresaDialog(false);
       toast.current?.show({ severity: 'error', summary: 'Erro', detail: error.response.data.titulo, life: 3000 });
     }

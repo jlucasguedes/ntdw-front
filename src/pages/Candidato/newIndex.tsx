@@ -24,8 +24,9 @@ import dateFormat from "dateformat";
 import { url } from '../../service/HostApi';
 import { useCidade } from '../../hooks/useCidade';
 import { useNavigate } from 'react-router-dom';
+import { formatDate } from '../../utils/ConvertUtils';
 
-export function GerenciarCandidato() {
+export function GerenciarCandidatos() {
 
   addLocale('pt', {
     "startsWith": "Começa com",
@@ -94,6 +95,7 @@ export function GerenciarCandidato() {
   const [candidatoDialog, setCandidatoDialog] = useState(false);
   const [receberNoticia, setReceberNoticia] = useState<boolean | undefined>(false);
   const [sexo, setSexo] = useState<'Masculino' | 'Feminino'>();
+  let navigate = useNavigate();
   // const [cidades, setCidades] = useState<Cidade[]>([]);
 
 
@@ -113,7 +115,6 @@ export function GerenciarCandidato() {
 
   const dt = useRef<DataTable>(null);
   const toast = useRef<Toast>(null);
-  let navigate = useNavigate();
 
   //Botões toolbar Nova candidato e Remover candidato
   const leftToolbarTemplate = () => {
@@ -278,11 +279,6 @@ export function GerenciarCandidato() {
         setUfs(response.data);
       });
   }, []);
-
-  function formatDate(data: string) {
-    const newData = data.substring(6, 10) + '-' + data.substring(3, 5) + '-' + data.substring(0, 2) + ' 00:00:00';
-    return newData;
-  }
 
   const editCandidato = (candidato: Candidato) => {
     setCandidato({ ...candidato });

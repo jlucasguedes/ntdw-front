@@ -12,6 +12,7 @@ import { GerenciarVaga } from './pages/Vaga';
 import { GerenciarEmpresa } from './pages/Empresa';
 import { locale, addLocale } from 'primereact/api';
 import pt from './locale/pt.json';
+import { GerenciarExperienciaProfissional } from './pages/ExperienciaProfissional';
 function App() {
   addLocale('pt-BR', pt)
   locale('pt-BR');
@@ -22,10 +23,10 @@ function App() {
         <Route path="/empresas" element={<GerenciarEmpresa />} />
         <Route path="/candidatos" element={<GerenciarCandidato />} />
         <Route path="/inscricoes" element={<Inscricao />} />
+        <Route path="/experienciaProfissional/candidatos/:id" element={<GerenciarExperienciaProfissional />} />
         <Route path="/vagas" element={<GerenciarVaga />} />
       </Routes>
     </HashRouter>
-
   )
 }
 

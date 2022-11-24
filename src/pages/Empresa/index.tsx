@@ -5,8 +5,6 @@ import { DataTable, DataTableGlobalFilterType } from 'primereact/datatable';
 import { Dialog } from 'primereact/dialog';
 import { Dropdown } from 'primereact/dropdown';
 import { InputText } from 'primereact/inputtext';
-import { Calendar } from 'primereact/calendar';
-import { RadioButton } from 'primereact/radiobutton';
 import { InputMask } from 'primereact/inputmask';
 import { Toast } from 'primereact/toast';
 import { Toolbar } from 'primereact/toolbar';
@@ -18,7 +16,6 @@ import { MainTemplate } from '../template/MainTemplate';
 import { ToggleButton } from 'primereact/togglebutton';
 import { tipoEnderecoSelectItems, turno } from '../../enums/EnumApi';
 import { Empresa, EmpresaForm } from '../../interfaces/EmpresaInterface';
-import dateFormat from "dateformat";
 import { url } from '../../service/HostApi';
 
 export function GerenciarEmpresa() {
@@ -33,7 +30,6 @@ export function GerenciarEmpresa() {
   const [loading, setLoading] = useState(true);
   const [empresaDialog, setEmpresaDialog] = useState(false);
   const [receberNoticia, setReceberNoticia] = useState<boolean | undefined>(false);
-  const [sexo, setSexo] = useState<'Masculino' | 'Feminino'>();
   const [cidades, setCidades] = useState<Cidade[]>([]);
   const [areasAtuacao, setAreasAtuacao] = useState<AreaAtuacao[]>([]);
 
@@ -76,7 +72,7 @@ export function GerenciarEmpresa() {
 
   /** Templates de exibição das colunas do datatable */
   const enderecoBodyTemplate = ({ endereco }: Empresa) => {
-    return `${endereco?.cep} / ${endereco?.cidade?.nome} / ${endereco?.logradouro} `;
+    return `${endereco?.cep} /  ${endereco?.cidade?.uf?.nome} - ${endereco?.cidade?.nome} / ${endereco?.logradouro} `;
   }
 
   const receberNoticiasBodyTemplate = ({ receberNoticias }: Empresa) => {

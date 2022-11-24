@@ -172,7 +172,7 @@ export function GerenciarExperienciaProfissional() {
         hideCandidatoDialog();
         toast?.current?.show({ severity: 'success', summary: 'Sucesso', detail: 'Candidato cadastrado!', life: 3000 });
       }
-      axios(`${url}/experiencias_profissionais`)
+      axios(`${url}/experiencias_profissionais/candidatos/${_experienciaProfissional.candidato.id}`)
         .then(response => {
           setExperienciasProfissionais(response.data);
         });

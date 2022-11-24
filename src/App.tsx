@@ -13,6 +13,9 @@ import { GerenciarEmpresa } from './pages/Empresa';
 import { locale, addLocale } from 'primereact/api';
 import pt from './locale/pt.json';
 import { GerenciarExperienciaProfissional } from './pages/ExperienciaProfissional';
+import { ConsultasVagas } from './pages/Consultas/vagas';
+import { ConsultasEmpresas } from './pages/Consultas/empresas';
+import { ConsultasCandidatos } from './pages/Consultas/candidatos';
 function App() {
   addLocale('pt-BR', pt)
   locale('pt-BR');
@@ -24,11 +27,14 @@ function App() {
         <Route path="/candidatos" element={<GerenciarCandidato />} />
         <Route path="/inscricoes" element={<Inscricao />} />
         <Route path="/experienciaProfissional/candidatos/:id" element={<GerenciarExperienciaProfissional />} />
+        <Route path="/experienciaProfissional/candidatos/:id" element={<GerenciarExperienciaProfissional />} />
         <Route path="/vagas" element={<GerenciarVaga />} />
+        <Route path="/consultas-empresas" element={<ConsultasEmpresas />} />
+        <Route path="/consultas-candidatos" element={<ConsultasCandidatos />} />
+        <Route path="/consultas-vagas" element={<ConsultasVagas />} />
       </Routes>
     </HashRouter>
   )
 }
-
 export default App
 

@@ -42,6 +42,27 @@ export function MainTemplate(props: MainTemplateProps) {
       icon: 'pi pi-list',
       command: () => { navigate('/vagas'); },
     },
+    {
+      label: 'Consultas',
+      icon: 'pi pi-search',
+      items: [
+        {
+          label: 'Empresas',
+          icon: 'pi pi-building',
+          command: () => { navigate('/consultas-empresas'); },
+        },
+        {
+          label: 'Candidatos',
+          icon: 'pi pi-users',
+          command: () => { navigate('/consultas-candidatos'); },
+        },
+        {
+          label: 'Vagas',
+          icon: 'pi pi-list',
+          command: () => { navigate('/consultas-vagas'); },
+        },
+      ],
+    },
     // {
     //   label: 'Inscrições',
     //   icon: 'pi pi-list',

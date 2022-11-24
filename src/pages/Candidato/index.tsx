@@ -176,7 +176,7 @@ export function GerenciarCandidato() {
 
   /** Dialog para deletar apenas 1 candidato por vez */
 
-  const deleteProduct = async () => {
+  const deleteCandidato = async () => {
     await axios.delete(`${url}/candidatos/${candidato?.id}`);
     let _candidatos = candidatos.filter(val => val.id !== candidato?.id);
     setCandidatos(_candidatos);
@@ -190,7 +190,7 @@ export function GerenciarCandidato() {
   const deleteCandidatoDialogFooter = (
     <Fragment>
       <Button label="Não" icon="pi pi-times" className="p-button-outlined p-button-danger" onClick={hideDeleteCandidatoDialog} />
-      <Button label="Sim" icon="pi pi-check" className="p-button-outlined p-button-success" onClick={deleteProduct} />
+      <Button label="Sim" icon="pi pi-check" className="p-button-outlined p-button-success" onClick={deleteCandidato} />
     </Fragment>
   );
   const confirmDeleteCandidato = (candidato: Candidato) => {
